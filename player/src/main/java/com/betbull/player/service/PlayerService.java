@@ -108,10 +108,13 @@ public class PlayerService {
 			Optional<Player> player = playerRepository.findById(id);
 			if(player.isEmpty()) {
 				throw new PlayerException(ResponseCodesUtil.getDescriptionByCode(ResponseCodesUtil.NOT_EXISTS), ResponseCodesUtil.NOT_EXISTS);
+			} else if (player.get().getIsValid()) {
+				contractService.passivateContract(player.get().getContract());
+				playerRepository.retirePlayerById(id, Boolean.FALSE);
+				return createResponseForSuccess();
+			} else {
+				throw new PlayerException(ResponseCodesUtil.getDescriptionByCode(ResponseCodesUtil.RETIRED), ResponseCodesUtil.RETIRED);
 			}
-			contractService.passivateContract(player.get().getContract());
-			playerRepository.retirePlayerById(id, Boolean.FALSE);
-			return createResponseForSuccess();
 		} catch (PlayerException e) {
 			return createResponseForPlayerException(e);
 		} catch (Exception e) {
