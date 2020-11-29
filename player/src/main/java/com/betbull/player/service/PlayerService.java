@@ -194,5 +194,27 @@ public class PlayerService {
 		player.setVersion(player.getVersion() + 1);
 		return player;
 	}
+	
+//	private List<PlayerResponseDto> convertListToRequestDtoList(List<Player> playerList) {
+//		List<PlayerResponseDto> dtos = new ArrayList<PlayerResponseDto>();
+//		playerList.forEach(e -> dtos.add(convertToRequestDto(e)));
+//		return dtos;
+//	}
+//	
+//	private PlayerResponseDto convertToRequestDto(Player player) {
+//		PlayerResponseDto dto = new PlayerResponseDto();
+//		dto.setAttackPower(player.getAttackPower());
+//		dto.setBirthDate(player.getBirthDate());
+//		dto.setCareerBeginDate(player.getCareerBeginDate());
+//		dto.setDefencePower(player.getDefencePower());
+//		dto.setId(player.getId());
+//		dto.setName(player.getName());
+//		dto.setNation(player.getNation());
+//		dto.setOverallPower(player.getOverallPower());
+//		dto.setPhysicalPower(player.getPhysicalPower());
+//		dto.setTeamName(player.getTeamName());
+//		dto.setPosition(player.getPosition());
+//		return dto;
+//	}
 
 }
