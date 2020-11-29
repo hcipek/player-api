@@ -25,11 +25,11 @@ public class PlayerRequestDto {
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
 	private Date careerBeginDate;
 	private String nation;
-	@JsonFormat(shape=JsonFormat.Shape.NUMBER, pattern="dd-MM-yyyy")
+	@JsonFormat(shape=JsonFormat.Shape.NUMBER)
 	private BigDecimal attackPower;
-	@JsonFormat(shape=JsonFormat.Shape.NUMBER, pattern="dd-MM-yyyy")
+	@JsonFormat(shape=JsonFormat.Shape.NUMBER)
 	private BigDecimal defencePower;
-	@JsonFormat(shape=JsonFormat.Shape.NUMBER, pattern="dd-MM-yyyy")
+	@JsonFormat(shape=JsonFormat.Shape.NUMBER)
 	private BigDecimal physicalPower;
 	private Long citizenshipNumber;
 	

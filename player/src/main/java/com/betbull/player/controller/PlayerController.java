@@ -23,7 +23,7 @@ public class PlayerController {
 	@Autowired
 	private PlayerService playerService;
 	
-	@PostMapping("/create")
+	@PostMapping("/createplayer")
 	@Transactional(propagation = Propagation.REQUIRED)
 	public DefaultPlayerResponse createPlayer(@RequestBody PlayerRequest request) {
 		return playerService.createPlayer(request);
@@ -44,17 +44,17 @@ public class PlayerController {
 		return playerService.getAllPlayers();
 	}
 	
-	@PostMapping("/retire")
-	public DefaultPlayerResponse retirePlayerById(@RequestParam Long id) {
+	@PostMapping("/retireplayerbyid")
+	public DefaultPlayerResponse retirePlayerById(@RequestParam("id") Long id) {
 		return playerService.retirePlayerById(id);
 	}
 	
 	@DeleteMapping("/deleteplayerbyid")
-	public DefaultPlayerResponse deletePlayerByName(@RequestParam("id") Long id){
+	public DefaultPlayerResponse deletePlayerById(@RequestParam("id") Long id){
 		return playerService.deletePlayerById(id);
     }
 
-	@GetMapping("/getactiveplayers")
+	@GetMapping("/getactiveplayer")
 	public MultiPlayerResponse getActivePlayers() {
 		return playerService.getActivePlayers();
 	}
@@ -64,17 +64,17 @@ public class PlayerController {
 		return playerService.unAssignPlayerById(id);
 	}
 
-	@GetMapping("/getplayerswithoutteam")
+	@GetMapping("/getwithoutteamplayer")
 	public MultiPlayerResponse getFreePlayers() {
 		return playerService.getPlayersWithoutTeam();
 	}
 
-	@GetMapping("/getretiredplayers")
+	@GetMapping("/getretiredplayer")
 	public MultiPlayerResponse getRetiredPlayers() {
 		return playerService.getRetiredPlayers();
 	}
 	
-	@DeleteMapping("/deleteall")
+	@DeleteMapping("/deleteallplayers")
 	public DefaultPlayerResponse deleteAll(){
 		return playerService.deleteAll();
     }
